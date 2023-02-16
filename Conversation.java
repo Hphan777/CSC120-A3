@@ -82,6 +82,7 @@ class Conversation {
           //each sentences printed into transcript
           for (String word: transcript);
             System.out.println(transcript);
+            
 
 
 
