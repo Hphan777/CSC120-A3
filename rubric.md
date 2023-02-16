@@ -32,9 +32,9 @@ ___X__ 1 pt: Replaces simple mirror words appropriately (unpunctuated, lowercase
 
 ___X__ 1 pt: Makes all appropriate mirror replacements
 
-_____ 1 pt: Stores transcript of the conversation in an array
+___x__ 1 pt: Stores transcript of the conversation in an array
 
-_____ 1 pt: Prints transcript when terminating
+___x__ 1 pt: Prints transcript when terminating
 
 ## Kudos:
 

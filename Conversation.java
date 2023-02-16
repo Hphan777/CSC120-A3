@@ -2,13 +2,19 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 
-import javax.lang.model.util.ElementScanner14;
+/**
+ * Conversation class creates a chatbot that mirrors certain user's input or pronoun and replace it with another word or gives random response depending on the amount of rounds given.
+ */
+
 
 class Conversation {
 
     public static void main(String[] args) {
 
+      //array list to store transcript
       ArrayList<String>transcript = new ArrayList<String>();
+
+      //scanner to input rounds
       Scanner userInput = new Scanner(System.in);
       System.out.println("How many rounds?");
       int num_Rounds = userInput.nextInt();
@@ -19,27 +25,23 @@ class Conversation {
       Random r = new Random();
 
       userInput.nextLine();
-   
-      String[] conversation = new String[2*num_Rounds+1];
-      conversation[0] = "Hi there!  What's on your mind?";
+      System.out.println("Hi there!  What's on your mind?");
       transcript.add("Hi there! What's on your mind?");
 
-      System.out.println(conversation[0]); 
-
       for (int i = 0; i < num_Rounds; i++) { 
+        //scanner to input answers
         Scanner mirror = new Scanner(System.in);
         String mirrored = mirror.nextLine();
         String mirrored1 = mirrored;
-        
-        //strings is split
+  
         String[] splited = mirrored1.split(" ");
 
 
-        //array list for random responses 
+        //list of random responses 
         String[] canned_responses = {"mmhm", "I see", "Ok.", "I don't care", "shut up", "loser"};
-        //array list for user's input 
+        //list of user's input 
         String[] input = {"I", "me", "am", "you", "my", "your"};
-        //array list of mirrored words of user's input
+        //list of mirrored words for user's input
         String[] replacment = {"you", "you", "are", "I", "your", "my"}; 
 
         //empty strings to add
@@ -47,7 +49,7 @@ class Conversation {
 
         int counter = 0;
         String words; 
-        //for loop to 
+        //for loop to loop splited input to find user's input and replace it with new strings
         for (int i2 = 0; i2 < splited.length; i2++) {
           words = "";
           for (int h = 0; h < input.length; h++ ) {
@@ -56,7 +58,6 @@ class Conversation {
               words = replacment[h];
             }
             if(words.equals("")){
-              //str += words[i] + " "; 
 
             }
 
@@ -65,10 +66,10 @@ class Conversation {
             }else{
               str += words + " ";
             }
+
           }if (counter > 0){
             System.out.println(str + "?");
             transcript.add(str);
-
 
           }if (counter <= 0){
             String random = (canned_responses[r.nextInt(canned_responses.length)]);
@@ -76,31 +77,25 @@ class Conversation {
             transcript.add(random);
           
           }
+
           System.out.println("Thanks for chatting!");
           transcript.add("Thanks for chatting!");
           System.out.println("TRANSCRIPT:");
+
           //each sentences printed into transcript
           for (String word: transcript);
             System.out.println(transcript);
-            
+          
 
 
-
-
-
-
-
-    
-
-            
-
-
-        
+         mirror.close(); 
 
         }
 
   
-          userInput.close(); }}
+          userInput.close(); }
+
+       }
           
 
       
